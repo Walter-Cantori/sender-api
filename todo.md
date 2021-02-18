@@ -1,0 +1,11 @@
+- Setup CI/CD
+- Deploy to aws
+- Setup debugging
+
+- add dynamodb
+- create repository/service for one api
+- create all APIs using api gateway
+- create sqs integration
+- create apis using sqs
+- step functions
+- define environments
