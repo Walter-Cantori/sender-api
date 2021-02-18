@@ -1,4 +1,4 @@
-import { Handler, Context } from 'aws-lambda';
+import { Context, Handler } from 'aws-lambda';
 
 interface HelloResponse {
   statusCode: number;
@@ -9,7 +9,7 @@ const hello: Handler = async (event: any, context: Context) => {
   const response: HelloResponse = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 11,
+      message: 'github actions',
     }),
   };
 

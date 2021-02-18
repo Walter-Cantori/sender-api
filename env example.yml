@@ -1,0 +1,5 @@
+prod:
+  appName: 'Sender-API'
+
+dev:
+  appName: 'Sender-API-DEV'
