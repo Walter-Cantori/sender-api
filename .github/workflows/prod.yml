@@ -36,7 +36,7 @@ jobs:
       # Optional
       #- name: Build assets
       #  run: npm run assets-prod
-      - name: Run tests
+      - name: Run test
         run: npm tests
       - name: Deploy Lambda functions
         run: sls deploy -s prod
