@@ -37,7 +37,7 @@ jobs:
       #- name: Build assets
       #  run: npm run assets-dev
       - name: Run tests
-        run: npm tests
+        run: npm test
       - name: Deploy Lambda functions
         run: sls deploy -s dev
     # Optional (to use with serverless-finch serverless plugin)
