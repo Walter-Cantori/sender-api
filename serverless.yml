@@ -17,7 +17,6 @@ provider:
   lambdaHashingVersion: 20201221
   region: us-east-1
   stage: ${opt:stage, self:custom.defaultStage}
-  profile: ${self:custom.profiles.${opt:stage, self:provider.stage, 'dev'}}
   environment:
     appName: ${self:custom.environment.appName}
 
