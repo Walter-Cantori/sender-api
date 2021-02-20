@@ -7,6 +7,7 @@
 - add dynamodb
 - create repository/service for one api
 - Setup debugging
+- authentication
 - create all APIs using api gateway
 - create sqs integration
 - create apis using sqs
