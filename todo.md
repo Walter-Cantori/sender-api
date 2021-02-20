@@ -4,7 +4,6 @@
 
 ## to do
 
-- add dynamodb
 - create repository/service for one api
 - Setup debugging
 - authentication
@@ -13,3 +12,4 @@
 - create apis using sqs
 - step functions
 - define environments
+- setup git pre hooks
