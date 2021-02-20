@@ -28,7 +28,7 @@ provider:
 resources:
   Resources:
     ProjectsTable:
-      Type: AWS::DYNAMODB::Table
+      Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
         AttributeDefinitions:
