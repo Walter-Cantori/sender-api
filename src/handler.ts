@@ -12,7 +12,7 @@ const hello: Handler = async (event: any, context: Context) => {
   const dynamoDB = new DynamoDB.DocumentClient();
 
   const data = {
-    TableName: process.env.DYNAMODB_TABLE || '',
+    TableName: process.env.DbTableName || '',
     Item: {
       id: v4(),
       createdAt: new Date().toISOString(),

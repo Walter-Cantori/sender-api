@@ -12,3 +12,4 @@
 - create apis using sqs
 - step functions
 - define environments
+- setup git pre hooks
