@@ -4,7 +4,6 @@
 
 ## to do
 
-- add dynamodb
 - create repository/service for one api
 - Setup debugging
 - authentication
