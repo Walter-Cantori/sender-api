@@ -13,3 +13,4 @@
 - step functions
 - define environments
 - setup git pre hooks
+- setup workflow for PR test/lint

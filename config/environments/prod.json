@@ -1,6 +1,6 @@
 {
   "appName": "Sender-API",
-  "DbTableName": "Projects",
+  "DbTableName": "Projects-prod",
   "DbWriteCapacityUnits": 1,
   "DbReadCapacityUnits": 1
 }
