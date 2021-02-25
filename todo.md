@@ -11,6 +11,5 @@
 - create sqs integration
 - create apis using sqs
 - step functions
-- define environments
 - setup git pre hooks
 - setup workflow for PR test/lint

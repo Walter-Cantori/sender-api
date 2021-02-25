@@ -6,6 +6,7 @@ frameworkVersion: '2'
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-dynamodb-local
   - serverless-offline
 
 provider:
@@ -22,18 +23,31 @@ custom:
   tableName: ${self:provider.environment.DbTableName}
   dbWriteCapacityUnits: ${self:provider.environment.DbWriteCapacityUnits}
   dbReadCapacityUnits: ${self:provider.environment.DbReadCapacityUnits}
+  dynamodb:
+    stages:
+      - dev
+    start:
+      start:
+      host: ${self:provider.environment.DB_HOST}
+      port: ${self:provider.environment.DB_PORT}
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
+    seed:
+      projects:
+        sources:
+          - table: ${self:provider.environment.DbTableName}
+            sources: ['./config/seed/projects.json']
 
 resources:
   Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
 
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+package:
+  excludeDevDependencies: true
+  individually: true
 
 functions:
   hello:

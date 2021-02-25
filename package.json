@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "test": "jest",
-    "start:local": "serverless offline start",
+    "start:local": "IS_LOCAL=true serverless offline start",
     "invoke:local": "serverless invoke local",
     "deploy:dev": "serverless deploy --stage dev"
   },
@@ -25,6 +25,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
+    "serverless-dynamodb-local": "^0.2.39",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-typescript": "^1.1.9",
     "ts-jest": "^26.5.1",

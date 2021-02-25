@@ -3,4 +3,7 @@
     - dynamodb:GetItem
     - dynamodb:UpdateItem
     - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:Query
+    - dynamodb:DescribeTable
   Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.tableName}'
