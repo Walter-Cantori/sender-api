@@ -8,6 +8,8 @@
     "outDir": "./build",
     "sourceMap": true,
     "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noImplicitThis": true,
