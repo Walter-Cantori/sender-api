@@ -33,9 +33,11 @@ const hello: Handler = async (event: any, context: Context) => {
       name: 'testname',
     },
   };
+  console.log('writing data to db');
 
   await dynamoDB.put(data).promise();
 
+  console.log('reading from db');
   const result = await dynamoDB
     .scan({
       TableName: 'Projects-dev',
