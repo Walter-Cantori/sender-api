@@ -8,15 +8,15 @@ class BaseRepository {
     this.model = model;
   }
 
-  async create(item) {
+  async create(item: unknown) {
     return promisify(this.model.create)(item);
   }
 
-  async findOne(item) {
+  async findOne(item: string) {
     return promisify(this.model.query)(item);
   }
 
-  async findAll(item) {
+  async findAll(item: string) {
     return promisify(this.model.scan)(item);
   }
 }

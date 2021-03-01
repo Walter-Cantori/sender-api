@@ -1,7 +1,6 @@
+import { Context, Handler } from 'aws-lambda';
 import { DynamoDB, Endpoint } from 'aws-sdk';
 import { v4 } from 'uuid';
-
-import { Context, Handler } from '/aws-lambda';
 
 interface HelloResponse {
   statusCode: number;
@@ -40,7 +39,7 @@ const hello: Handler = async (event: any, context: Context) => {
   console.log('reading from db');
   const result = await dynamoDB
     .scan({
-      TableName: 'Projects-dev',
+      TableName: 'projects',
     })
     .promise();
   const response: HelloResponse = {

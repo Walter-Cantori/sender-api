@@ -5,7 +5,7 @@ service: sender-api
 frameworkVersion: '2'
 
 plugins:
-  - serverless-plugin-typescript
+  - serverless-webpack
   - serverless-dynamodb-local
   - serverless-offline
 
@@ -20,6 +20,8 @@ provider:
 
 custom:
   defaultStage: dev
+  webpack:
+    includeModules: true
   tableName: ${self:provider.environment.DbTableName}
   dbWriteCapacityUnits: ${self:provider.environment.DbWriteCapacityUnits}
   dbReadCapacityUnits: ${self:provider.environment.DbReadCapacityUnits}

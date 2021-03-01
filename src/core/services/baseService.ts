@@ -1,19 +1,20 @@
 class BaseService {
-  constructor({ repository }) {
+  repository: unknown;
+
+  constructor({ repository }: { repository: unknown }) {
     this.repository = repository;
   }
 
-  async create(item) {
-    return this.repository.crate(item);
-  }
+  //   async create(item: string) {
+  //   }
 
-  async findOne(item) {
-    return this.repository.findOne(item);
-  }
+  //   async findOne(item: string) {
+  //     return this.repository.findOne(item);
+  //   }
 
-  async findAll(item) {
-    return this.repository.findAll(item);
-  }
+  //   async findAll(item: string) {
+  //     return this.repository.findAll(item);
+  //   }
 }
 
 export default BaseService;

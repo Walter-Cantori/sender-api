@@ -22,8 +22,14 @@
       "simple-import-sort"
     ],
     "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
       "import/resolver": {
-        "typescript": {}
+        "typescript": {
+          "alwaysTryTypes": true,
+          "paths": "./tsconfig.json"
+        }
       }
     },
     "ignorePatterns": "build",
