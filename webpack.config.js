@@ -11,7 +11,7 @@ module.exports = {
   mode: isLocal ? 'development' : 'production',
   entry: slsw.lib.entries,
   externals: [nodeExternals()],
-  devtool: 'source-map',
+  devtool: isLocal ? 'source-map' : 'null',
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },

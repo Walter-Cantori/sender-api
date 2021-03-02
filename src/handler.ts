@@ -1,4 +1,5 @@
 import { Context, Handler } from 'aws-lambda';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { DynamoDB, Endpoint } from 'aws-sdk';
 import { v4 } from 'uuid';
 
