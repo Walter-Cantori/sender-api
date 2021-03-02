@@ -1,20 +1,23 @@
-class BaseService {
-  repository: unknown;
+import { IRepository } from '../interfaces/IRepository';
 
-  constructor({ repository }: { repository: unknown }) {
+class BaseService {
+  repository: IRepository;
+
+  constructor({ repository }: { repository: IRepository }) {
     this.repository = repository;
   }
 
-  //   async create(item: string) {
-  //   }
+  create<T>(item: T): Promise<T> {
+    return this.repository.create(item);
+  }
 
-  //   async findOne(item: string) {
-  //     return this.repository.findOne(item);
-  //   }
+  findOne<T>(item: string): Promise<T> {
+    return this.repository.findOne(item);
+  }
 
-  //   async findAll(item: string) {
-  //     return this.repository.findAll(item);
-  //   }
+  findAll<T>(item: string): Promise<T> {
+    return this.repository.findAll(item);
+  }
 }
 
 export default BaseService;

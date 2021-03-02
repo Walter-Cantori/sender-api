@@ -1,23 +1,25 @@
 import { Model } from 'dynamoose';
 import { promisify } from 'util';
 
-class BaseRepository {
+import { IRepository } from '../interfaces/IRepository';
+
+class BaseRepository implements IRepository {
   model: Model;
 
   constructor({ model }: { model: Model }) {
     this.model = model;
   }
 
-  async create(item: unknown) {
-    return promisify(this.model.create)(item);
+  async create<T>(item: T): Promise<T> {
+    return promisify(this.model.create)(item) as Promise<T>;
   }
 
-  async findOne(item: string) {
-    return promisify(this.model.query)(item);
+  async findOne<T>(item: string): Promise<T> {
+    return promisify(this.model.query)(item) as Promise<T>;
   }
 
-  async findAll(item: string) {
-    return promisify(this.model.scan)(item);
+  async findAll<T>(item: string): Promise<T> {
+    return promisify(this.model.scan)(item) as Promise<T>;
   }
 }
 
