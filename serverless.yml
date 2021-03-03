@@ -61,11 +61,11 @@ functions:
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:
+      - s3:
+          bucket: ${self:provider.environment.PROJECTS_UPLOAD_BUCKET}
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: .csv
       # - http:
       #     path: projects/upload
       #     method: post
-      - s3:
-        bucket: ${self:provider.environment.PROJECTS_UPLOAD_BUCKET}
-        event: s3:ObjectCreated:*
-        rules:
-          - suffix: .csv
