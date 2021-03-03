@@ -4,5 +4,6 @@
   "DbWriteCapacityUnits": 1,
   "DbReadCapacityUnits": 1,
   "DB_HOST": "localhost",
-  "DB_PORT": 4569
+  "DB_PORT": 4569,
+  "PROJECTS_UPLOAD_BUCKET": "sender-api-projects-upload"
 }

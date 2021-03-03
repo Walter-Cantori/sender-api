@@ -16,7 +16,7 @@ provider:
   region: us-east-1
   stage: ${opt:stage, self:custom.defaultStage}
   environment: ${file(./config/environments/${self:provider.stage}.json)}
-  iamRoleStatements: ${file(./config/serverless/db.dynamo.iam.role.yaml)}
+  iamRoleStatements: ${file(./config/serverless/iam.roles.yaml)}
 
 custom:
   defaultStage: dev
@@ -58,3 +58,14 @@ functions:
       - http:
           path: hello
           method: get
+  process-projects-upload:
+    handler: src/functions/projects/processProjectsUpload.handler
+    events:
+      # - http:
+      #     path: projects/upload
+      #     method: post
+      - s3:
+        bucket: ${self:provider.environment.PROJECTS_UPLOAD_BUCKET}
+        event: s3:ObjectCreated:*
+        rules:
+          - suffix: .csv

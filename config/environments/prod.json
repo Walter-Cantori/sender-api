@@ -2,5 +2,6 @@
   "appName": "Sender-API",
   "DbTableName": "projects",
   "DbWriteCapacityUnits": 1,
-  "DbReadCapacityUnits": 1
+  "DbReadCapacityUnits": 1,
+  "PROJECTS_UPLOAD_BUCKET": "sender-api-projects-upload"
 }

@@ -38,6 +38,7 @@
       "simple-import-sort/imports": "error",
       "import/prefer-default-export": "off",
       "max-classes-per-file": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "no-console": "off"
     }
 }
