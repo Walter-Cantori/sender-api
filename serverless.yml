@@ -8,7 +8,7 @@ plugins:
   - serverless-webpack
   - serverless-dynamodb-local
   - serverless-offline
-
+  - serverless-s3-local
 provider:
   name: aws
   runtime: nodejs12.x
@@ -25,6 +25,10 @@ custom:
   tableName: ${self:provider.environment.DbTableName}
   dbWriteCapacityUnits: ${self:provider.environment.DbWriteCapacityUnits}
   dbReadCapacityUnits: ${self:provider.environment.DbReadCapacityUnits}
+  # mock services locally
+  s3:
+    port: 8000
+    directory: /tmp
   dynamodb:
     stages:
       - dev
@@ -66,6 +70,10 @@ functions:
           event: s3:ObjectCreated:*
           rules:
             - suffix: .csv
-      # - http:
-      #     path: projects/upload
-      #     method: post
+  # mock functions
+  # s3-tester:
+  #   handler: src/mocks/functions/s3-mock.handler
+  #   events:
+  #     - http:
+  #         path: /mocks/s3-tester
+  #         method: GET
