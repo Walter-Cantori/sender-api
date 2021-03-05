@@ -27,7 +27,7 @@
           "arn": "arn:aws:s3: : :sender-api-projects-upload"
         },
         "object": {
-          "key": "testdata.csv",
+          "key": "testdata2.csv",
           "sequencer": "177F5D3D6DA",
           "size": 4,
           "eTag": "e2fc714c4727ee9395f324cd2e7f331f"
