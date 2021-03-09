@@ -56,11 +56,17 @@ package:
   individually: true
 
 functions:
-  hello:
-    handler: src/handler.hello
+  test1:
+    handler: src/functions/test1.handler
     events:
       - http:
-          path: hello
+          path: test1
+          method: get
+  test1:
+    handler: src/functions/test2.handler
+    events:
+      - http:
+          path: test2
           method: get
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
