@@ -67,8 +67,12 @@ functions:
     handler: src/functions/test2/test2api.handler
     events:
       - http:
-          path: test2
+          path: /{version}/test2
           method: get
+          request:
+            parameters:
+              paths:
+                version: true
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:
