@@ -1,8 +1,8 @@
 export function generateResponse(
   param: string
-): { statusCode: number; message: string } {
+): { statusCode: number; body: string } {
   return {
     statusCode: 200,
-    message: `hello service test 1 ${param}`,
+    body: JSON.stringify({ message: `hello service test 1 v1 - ${param}` }),
   };
 }

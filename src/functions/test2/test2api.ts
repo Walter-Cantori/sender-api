@@ -1,9 +1,9 @@
 import { Handler } from 'aws-lambda';
 
-import { generateResponse } from '../../services/test1.service';
+import { generateResponse } from '../../services/test2.service';
 
 const handler: Handler = async () => {
-  const param = 'test1 v1';
+  const param = 'test2 handler v1';
   return generateResponse(param);
 };
 
