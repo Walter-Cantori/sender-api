@@ -1,4 +1,4 @@
-service: sender-api
+service: sender-api-v2
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -9,7 +9,6 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-s3-local
-  - serverless-aws-alias-fixed
 
 provider:
   name: aws
@@ -62,13 +61,13 @@ functions:
     handler: src/functions/test1/test1api.handler
     events:
       - http:
-          path: test1
+          path: v2/test1
           method: get
   test2:
     handler: src/functions/test2/test2api.handler
     events:
       - http:
-          path: test2
+          path: v2/test2
           method: get
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
