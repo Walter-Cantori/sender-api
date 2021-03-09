@@ -1,4 +1,4 @@
-service: sender-api-v2
+service: sender-api
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -61,13 +61,13 @@ functions:
     handler: src/functions/test1/test1api.handler
     events:
       - http:
-          path: v2/test1
+          path: test1
           method: get
   test2:
     handler: src/functions/test2/test2api.handler
     events:
       - http:
-          path: v2/test2
+          path: test2
           method: get
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
