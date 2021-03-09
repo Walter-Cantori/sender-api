@@ -62,7 +62,7 @@ functions:
       - http:
           path: test1
           method: get
-  test1:
+  test2:
     handler: src/functions/test2.handler
     events:
       - http:
