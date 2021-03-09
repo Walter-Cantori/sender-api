@@ -7,3 +7,4 @@ env.yml
 coverage
 stats.json
 .webpack
+.dynamodb

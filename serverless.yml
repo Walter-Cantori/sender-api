@@ -9,6 +9,8 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-s3-local
+  - serverless-aws-alias
+
 provider:
   name: aws
   runtime: nodejs12.x
