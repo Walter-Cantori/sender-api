@@ -61,18 +61,23 @@ functions:
     handler: src/functions/test1/test1api.handler
     events:
       - http:
-          path: test1
+          path: /test1/{barid}
           method: get
+          request:
+            parameters:
+              paths:
+                barid: true
   test2:
     handler: src/functions/test2/test2api.handler
     events:
       - http:
-          path: /{version}/test2
+          path: /{version}/test2/{id}
           method: get
           request:
             parameters:
               paths:
                 version: true
+                id: true
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:
