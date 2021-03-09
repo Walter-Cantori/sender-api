@@ -56,17 +56,7 @@ package:
   excludeDevDependencies: true
   individually: true
 
-functions:
-  test1:
-    handler: src/functions/test1/test1api.handler
-    events:
-      - http:
-          path: /test1/{barid}
-          method: get
-          request:
-            parameters:
-              paths:
-                barid: true
+functions:S
   test2:
     handler: src/functions/test2/test2api.handler
     events:
