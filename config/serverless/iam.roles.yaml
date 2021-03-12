@@ -1,5 +1,6 @@
 - Effect: Allow
   Action:
+    - dynamodb:CreateTable
     - dynamodb:GetItem
     - dynamodb:UpdateItem
     - dynamodb:PutItem
