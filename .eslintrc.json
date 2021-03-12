@@ -21,10 +21,25 @@
       "@typescript-eslint",
       "simple-import-sort"
     ],
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true,
+          "paths": "./tsconfig.json"
+        }
+      }
+    },
     "ignorePatterns": "build",
     "rules": {
       "prettier/prettier": "error",
       "simple-import-sort/imports": "error",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "max-classes-per-file": "off",
+      "import/extensions": "off",
+      "no-console": "off",
+      "import/no-extraneous-dependencies": "off"
     }
 }

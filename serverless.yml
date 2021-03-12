@@ -5,8 +5,10 @@ service: sender-api
 frameworkVersion: '2'
 
 plugins:
-  - serverless-plugin-typescript
+  - serverless-webpack
+  - serverless-dynamodb-local
   - serverless-offline
+  - serverless-s3-local
 
 provider:
   name: aws
@@ -15,30 +17,75 @@ provider:
   region: us-east-1
   stage: ${opt:stage, self:custom.defaultStage}
   environment: ${file(./config/environments/${self:provider.stage}.json)}
-  iamRoleStatements: ${file(./config/serverless/db.dynamo.iam.role.yaml)}
+  iamRoleStatements: ${file(./config/serverless/iam.roles.yaml)}
 
 custom:
   defaultStage: dev
+  webpack:
+    includeModules: true
   tableName: ${self:provider.environment.DbTableName}
   dbWriteCapacityUnits: ${self:provider.environment.DbWriteCapacityUnits}
   dbReadCapacityUnits: ${self:provider.environment.DbReadCapacityUnits}
+  # mock services locally
+  s3:
+    port: 8000
+    directory: /tmp
+  dynamodb:
+    stages:
+      - dev
+    start:
+      start:
+      host: ${self:provider.environment.DB_HOST}
+      port: ${self:provider.environment.DB_PORT}
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
+    seed:
+      projects:
+        sources:
+          - table: ${self:provider.environment.DbTableName}
+            sources: ['./config/seed/projects.json']
 
-resources:
-  Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
+# resources:
+#   Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
 
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+package:
+  excludeDevDependencies: true
+  individually: true
 
 functions:
-  hello:
-    handler: src/handler.hello
+  test2:
+    handler: src/functions/test2/test2api.handler
     events:
       - http:
-          path: hello
+          path: /{version}/test2/{id}
           method: get
+          request:
+            parameters:
+              paths:
+                version: true
+                id: true
+  projects-get:
+    handler: src/functions/projects/getProjects.handler
+    events:
+      - http:
+          path: /projects
+          method: get
+  process-projects-upload:
+    handler: src/functions/projects/processProjectsUpload.handler
+    events:
+      - s3:
+          bucket: ${self:provider.environment.PROJECTS_UPLOAD_BUCKET}
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: .csv
+  # mock functions
+  # s3-tester:
+  #   handler: src/mocks/functions/s3-mock.handler
+  #   events:
+  #     - http:
+  #         path: /mocks/s3-tester
+  #         method: GET
