@@ -19,7 +19,7 @@ class BaseRepository implements IRepository {
   }
 
   async findAll<T>(): Promise<T[]> {
-    return this.model.scan<T>().exec();
+    return this.model.scan<T>().exec() as Promise<T[]>;
   }
 }
 
