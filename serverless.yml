@@ -30,24 +30,24 @@ custom:
   s3:
     port: 8000
     directory: /tmp
-  dynamodb:
-    stages:
-      - dev
-    start:
-      start:
-      host: ${self:provider.environment.DB_HOST}
-      port: ${self:provider.environment.DB_PORT}
-      inMemory: true
-      heapInitial: 200m
-      heapMax: 1g
-      migrate: true
-      seed: true
-      convertEmptyValues: true
-    seed:
-      projects:
-        sources:
-          - table: ${self:provider.environment.DbTableName}
-            sources: ['./config/seed/projects.json']
+  # dynamodb:
+  #   stages:
+  #     - dev
+  #   start:
+  #     start:
+  #     host: ${self:provider.environment.DB_HOST}
+  #     port: ${self:provider.environment.DB_PORT}
+  #     inMemory: true
+  #     heapInitial: 200m
+  #     heapMax: 1g
+  #     migrate: true
+  #     seed: true
+  #     convertEmptyValues: true
+  #   seed:
+  #     projects:
+  #       sources:
+  #         - table: ${self:provider.environment.DbTableName}
+  #           sources: ['./config/seed/projects.json']
 
 # resources:
 #   Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
