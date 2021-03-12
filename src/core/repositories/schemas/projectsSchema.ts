@@ -2,16 +2,30 @@ import * as dynamoose from 'dynamoose';
 
 const { Schema } = dynamoose;
 
-const schema = new Schema({
-  id: {
-    type: String,
-    required: true,
-    hashKey: true,
+const projectSchema = new Schema(
+  {
+    id: {
+      type: String,
+      required: true,
+      hashKey: true,
+    },
+    name: {
+      type: String,
+      required: true,
+      rangeKey: true,
+    },
+    parentProject: {
+      type: String,
+      required: false,
+    },
+    variables: {
+      type: Object,
+      required: false,
+    },
   },
-  name: {
-    type: String,
-    required: true,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
-export const model = dynamoose.model(process.env.DbTableName as string, schema);
+export const model = dynamoose.model('project', projectSchema);

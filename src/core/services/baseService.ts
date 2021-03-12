@@ -15,8 +15,8 @@ class BaseService {
     return this.repository.findOne(item);
   }
 
-  findAll<T>(item: string): Promise<T> {
-    return this.repository.findAll(item);
+  findAll<T>(): Promise<T> {
+    return this.repository.findAll();
   }
 }
 

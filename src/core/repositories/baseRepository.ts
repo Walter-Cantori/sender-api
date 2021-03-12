@@ -18,8 +18,8 @@ class BaseRepository implements IRepository {
     return promisify(this.model.query)(item) as Promise<T>;
   }
 
-  async findAll<T>(item: string): Promise<T> {
-    return promisify(this.model.scan)(item) as Promise<T>;
+  async findAll<T>(): Promise<T> {
+    return promisify(this.model.scan)('') as Promise<T>;
   }
 }
 

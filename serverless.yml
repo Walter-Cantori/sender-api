@@ -49,8 +49,8 @@ custom:
           - table: ${self:provider.environment.DbTableName}
             sources: ['./config/seed/projects.json']
 
-resources:
-  Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
+# resources:
+#   Resources: ${file(./config/serverless/resources/dynamo.project.table.yaml)}
 
 package:
   excludeDevDependencies: true
@@ -68,6 +68,8 @@ functions:
               paths:
                 version: true
                 id: true
+  projects-get:
+    handler: src/functions/projects/getProjects.handler
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:

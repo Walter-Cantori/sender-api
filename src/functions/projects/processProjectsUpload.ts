@@ -1,5 +1,4 @@
 import { S3Handler } from 'aws-lambda';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { S3, SES } from 'aws-sdk';
 import { SendEmailRequest } from 'aws-sdk/clients/ses';
 import csvtojson from 'csvtojson';
