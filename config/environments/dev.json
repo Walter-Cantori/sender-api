@@ -1,6 +1,6 @@
 {
   "appName": "Sender-API-DEV",
-  "DbTableName": "projects",
+  "DbTableName": "project",
   "DbWriteCapacityUnits": 1,
   "DbReadCapacityUnits": 1,
   "DB_HOST": "localhost",

@@ -100,6 +100,8 @@ declare module 'dynamoose' {
 
     scan<T>(filter: string): Scan<T>;
 
+    scan<T>(): Scan<T>;
+
     update(key, update, options, callback: (err) => void);
   }
   export class VirtualType {
