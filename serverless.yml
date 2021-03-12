@@ -70,6 +70,10 @@ functions:
                 id: true
   projects-get:
     handler: src/functions/projects/getProjects.handler
+    events:
+      - http:
+          path: /projects
+          method: get
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:
