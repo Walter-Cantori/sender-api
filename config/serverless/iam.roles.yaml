@@ -17,7 +17,7 @@
   Action:
     - ses:SendEmail
     - ses:SendRawEmail
-  Resource: '*'  "Version": "2012-10-17",
+  Resource: '*'
 - Effect: Allow
   Action:
     - ec2:DescribeNetworkInterfaces
