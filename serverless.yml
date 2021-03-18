@@ -18,6 +18,7 @@ provider:
   apiName: ${opt:stage, self:provider.stage, 'dev'}
   stage: ${opt:stage, self:custom.defaultStage}
   environment: ${file(./config/environments/${self:provider.stage}.json)}
+  subnets: ['subnet-3ed8f073', 'subnet-6d00ac5c']
   iam:
     role:
       statements: ${file(./config/serverless/iam.roles.yaml)}
@@ -74,9 +75,7 @@ functions:
     vpc:
       securityGroupIds:
         - sg-8e407d82
-      subnetIds:
-        - subnet-3ed8f073
-        - subnet-6d00ac5c
+      subnetIds: ${self:provider.subnets}
   # project-get:
   #   handler: src/functions/projects/getProject.handler
   #   events:
