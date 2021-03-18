@@ -40,6 +40,8 @@
       "max-classes-per-file": "off",
       "import/extensions": "off",
       "no-console": "off",
-      "import/no-extraneous-dependencies": "off"
+      "import/no-extraneous-dependencies": "off",
+      "no-shadow": "off",
+      "@typescript-eslint/no-shadow": ["error"]
     }
 }

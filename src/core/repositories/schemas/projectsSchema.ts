@@ -2,6 +2,12 @@ import * as dynamoose from 'dynamoose';
 
 const { Schema } = dynamoose;
 
+const { IS_LOCAL } = process.env;
+if (IS_LOCAL) {
+  // @ts-ignore
+  dynamoose.aws.ddb.local('http://localhost:4569');
+}
+
 const projectSchema = new Schema(
   {
     id: {
@@ -9,21 +15,14 @@ const projectSchema = new Schema(
       required: true,
       hashKey: true,
     },
-    name: {
+    subType: {
       type: String,
       required: true,
       rangeKey: true,
     },
-    parentProject: {
-      type: String,
-      required: false,
-    },
-    variables: {
-      type: Object,
-      required: false,
-    },
   },
   {
+    saveUnknown: true,
     timestamps: true,
   }
 );

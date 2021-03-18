@@ -72,9 +72,11 @@ declare module 'dynamoose' {
 
     get<T>(key, options?, callback?: (err, obj) => void): Promise<T>;
 
+    delete<T>(key, options?, callback?: (err, obj) => void): Promise<void>;
+
     batchPut(items: ModelObject[], options, callback: (err, obj) => void);
 
-    create<T>(obj: T, callback: (err, obj: T) => void);
+    create<T>(obj: T, callback?: (err, obj: T) => void);
 
     create<T>(obj: T, options, callback: (err, obj: T) => void);
 
@@ -102,7 +104,7 @@ declare module 'dynamoose' {
 
     scan<T>(): Scan<T>;
 
-    update(key, update, options, callback: (err) => void);
+    update<T>(key, update, options?, callback?: (err) => void);
   }
   export class VirtualType {
     constructor(options: any, name: string);
@@ -175,6 +177,7 @@ declare module 'dynamoose' {
   // Schema options
   export interface SchemaOptions {
     throughput?: number | { read?: number; write?: number };
+    saveUnknown?: boolean;
     timestamps?: boolean | { createdAt?: string; updatedAt?: string };
   }
 

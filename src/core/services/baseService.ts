@@ -11,8 +11,16 @@ class BaseService {
     return this.repository.create(item);
   }
 
-  findOne<T>(item: string): Promise<T> {
-    return this.repository.findOne(item);
+  update<T>(item: T): Promise<T> {
+    return this.repository.update(item);
+  }
+
+  findOne<T>(id: string): Promise<T> {
+    return this.repository.findOne(id);
+  }
+
+  delete(id: string): Promise<void> {
+    return this.repository.delete(id);
   }
 
   findAll<T>(): Promise<T[]> {
