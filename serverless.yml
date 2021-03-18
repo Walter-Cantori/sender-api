@@ -68,48 +68,48 @@ functions:
               paths:
                 version: true
                 id: true
-  project-get:
-    handler: src/functions/projects/getProject.handler
-    events:
-      - http:
-          path: /projects/{id}
-          method: get
-          request:
-            parameters:
-              paths:
-                id: true
-  project-post:
-    handler: src/functions/projects/createProject.handler
-    events:
-      - http:
-          path: /projects
-          method: post
-  project-put:
-    handler: src/functions/projects/updateProject.handler
-    events:
-      - http:
-          path: /projects/{id}
-          method: put
-          request:
-            parameters:
-              paths:
-                id: true
-  project-delete:
-    handler: src/functions/projects/deleteProject.handler
-    events:
-      - http:
-          path: /projects/{id}
-          method: delete
-          request:
-            parameters:
-              paths:
-                id: true
-  project-get-all:
-    handler: src/functions/projects/getAllProject.handler
-    events:
-      - http:
-          path: /projects
-          method: get
+  # project-get:
+  #   handler: src/functions/projects/getProject.handler
+  #   events:
+  #     - http:
+  #         path: /projects/{id}
+  #         method: get
+  #         request:
+  #           parameters:
+  #             paths:
+  #               id: true
+  # project-post:
+  #   handler: src/functions/projects/createProject.handler
+  #   events:
+  #     - http:
+  #         path: /projects
+  #         method: post
+  # project-put:
+  #   handler: src/functions/projects/updateProject.handler
+  #   events:
+  #     - http:
+  #         path: /projects/{id}
+  #         method: put
+  #         request:
+  #           parameters:
+  #             paths:
+  #               id: true
+  # project-delete:
+  #   handler: src/functions/projects/deleteProject.handler
+  #   events:
+  #     - http:
+  #         path: /projects/{id}
+  #         method: delete
+  #         request:
+  #           parameters:
+  #             paths:
+  #               id: true
+  # project-get-all:
+  #   handler: src/functions/projects/getAllProject.handler
+  #   events:
+  #     - http:
+  #         path: /projects
+  #         method: get
   process-projects-upload:
     handler: src/functions/projects/processProjectsUpload.handler
     events:
