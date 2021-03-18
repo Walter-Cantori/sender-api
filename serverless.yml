@@ -72,10 +72,10 @@ functions:
               paths:
                 version: true
                 id: true
-    vpc:
-      securityGroupIds:
-        - sg-8e407d82
-      subnetIds: ${self:custom.subnets}
+    # vpc:
+    #   securityGroupIds:
+    #     - sg-8e407d82
+    #   subnetIds: ${self:custom.subnets}
   # project-get:
   #   handler: src/functions/projects/getProject.handler
   #   events:
