@@ -61,21 +61,23 @@ package:
   individually: true
 
 functions:
-  # test2:
-  #   handler: src/functions/test2/test2api.handler
-  #   events:
-  #     - http:
-  #         path: /{version}/test2/{id}
-  #         method: get
-  #         request:
-  #           parameters:
-  #             paths:
-  #               version: true
-  #               id: true
-    # vpc:
-    #   securityGroupIds:
-    #     - sg-8e407d82
-    #   subnetIds: ${self:custom.subnets}
+  test2:
+    handler: src/functions/test2/test2api.handler
+    events:
+      - http:
+          path: /{version}/test2/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                version: true
+                id: true
+    vpc:
+      securityGroupIds:
+        - sg-8e407d82
+      subnetIds:
+        - subnet-3ed8f073
+        - subnet-6d00ac5c
   # project-get:
   #   handler: src/functions/projects/getProject.handler
   #   events:
