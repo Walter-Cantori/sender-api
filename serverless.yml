@@ -75,8 +75,7 @@ functions:
     vpc:
       securityGroupIds:
         - sg-8e407d82
-      subnetIds:
-        - subnet-3ed8f073
+      subnetIds: ${self:custom.subnets}
   # project-get:
   #   handler: src/functions/projects/getProject.handler
   #   events:
