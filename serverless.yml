@@ -19,8 +19,8 @@ provider:
   stage: ${opt:stage, self:custom.defaultStage}
   environment: ${file(./config/environments/${self:provider.stage}.json)}
   iam:
-    Role:
-      Statements: ${file(./config/serverless/iam.roles.yaml)}
+    role:
+      statements: ${file(./config/serverless/iam.roles.yaml)}
 
 custom:
   defaultStage: dev
