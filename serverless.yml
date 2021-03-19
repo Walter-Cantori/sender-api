@@ -76,22 +76,22 @@ functions:
       securityGroupIds:
         - sg-8e407d82
       subnetIds: ${self:custom.subnets}
-  # project-get:
-  #   handler: src/functions/projects/getProject.handler
-  #   events:
-  #     - http:
-  #         path: /projects/{id}
-  #         method: get
-  #         request:
-  #           parameters:
-  #             paths:
-  #               id: true
-  # project-post:
-  #   handler: src/functions/projects/createProject.handler
-  #   events:
-  #     - http:
-  #         path: /projects
-  #         method: post
+  project-get:
+    handler: src/functions/projects/getProject.handler
+    events:
+      - http:
+          path: /projects/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+  project-post:
+    handler: src/functions/projects/createProject.handler
+    events:
+      - http:
+          path: /projects
+          method: post
   # project-put:
   #   handler: src/functions/projects/updateProject.handler
   #   events:
