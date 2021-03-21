@@ -9,6 +9,7 @@ const projectService = createInstance();
 
 const handler: Handler = async (event: APIGatewayProxyEvent) => {
   try {
+    console.log(event);
     const { name, parentProject, variables } = new RequestValidatorService(
       event,
       createProjectValidator
@@ -30,7 +31,7 @@ const handler: Handler = async (event: APIGatewayProxyEvent) => {
     console.log(e);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: e }),
+      body: JSON.stringify({ error: e.message }),
     };
   }
 };

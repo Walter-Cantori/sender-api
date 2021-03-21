@@ -24,9 +24,11 @@ provider:
 
 custom:
   defaultStage: dev
-  subnets: ['subnet-3ed8f073','subnet-6d00ac5c']
+  subnets: ['subnet-3ed8f073', 'subnet-6d00ac5c']
   webpack:
-    includeModules: true
+    includeModules:
+      forceExclude:
+        - aws-sdk
   tableName: ${self:provider.environment.DbTableName}
   dbWriteCapacityUnits: ${self:provider.environment.DbWriteCapacityUnits}
   dbReadCapacityUnits: ${self:provider.environment.DbReadCapacityUnits}
