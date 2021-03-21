@@ -18,9 +18,7 @@ provider:
   apiName: ${opt:stage, self:provider.stage, 'dev'}
   stage: ${opt:stage, self:custom.defaultStage}
   environment: ${file(./config/environments/${self:provider.stage}.json)}
-  iam:
-    role:
-      statements: ${file(./config/serverless/iam.roles.yaml)}
+  iamRoleStatements: ${file(./config/serverless/iam.roles.yaml)}
 
 custom:
   defaultStage: dev
