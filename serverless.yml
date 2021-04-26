@@ -5,11 +5,11 @@ service: sender-api
 frameworkVersion: '2'
 
 plugins:
+  - serverless-pseudo-parameters
   - serverless-webpack
   - serverless-dynamodb-local
   - serverless-offline
   - serverless-s3-local
-  - serverless-pseudo-parameters
 
 provider:
   name: aws
