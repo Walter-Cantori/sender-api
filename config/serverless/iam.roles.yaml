@@ -7,8 +7,7 @@
     - dynamodb:Scan
     - dynamodb:Query
     - dynamodb:DescribeTable
-  Resource:
-    - Fn::Sub: arn:aws:dynamodb:${AWS::Region}:*:table/*'
+  Resource: 'arn:aws:dynamodb:#{AWS::Region}:*:table/*'
 - Effect: Allow
   Action:
     - s3:GetObject
