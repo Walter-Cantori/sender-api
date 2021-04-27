@@ -26,7 +26,7 @@ jobs:
       - name: Install NPM dependencies
         run: npm ci
       - name: Install Serverless Framework
-        run: npm install -g serverless@2.17.0
+        run: npm install -g serverless@2.38.0
       - name: Serverless AWS authentication
         run: sls config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
       # Optional
